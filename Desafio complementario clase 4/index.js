@@ -11,6 +11,7 @@ function validar(numero){
         mostrar(numero);
     }else{
         console.log("Su numero no es multiplo de 2")
+        mostrar(numero)
     }
 
 }

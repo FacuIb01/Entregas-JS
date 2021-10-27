@@ -4,16 +4,12 @@ let añadir = document.querySelector("#adicion")
 
 let divToDo = document.querySelector("#toDoList")
 
-
-
-
-
 let listaTareas;
 
 dataUsuario.onkeyup = () => {
-
+    
     let dataTrabajada = dataUsuario.value
-
+    
     if(dataTrabajada.trim() != 0){
         añadir.classList.add("activo")
     }else{
@@ -21,10 +17,10 @@ dataUsuario.onkeyup = () => {
     }
 }
 
-añadir.addEventListener("click", () => {
+$("#adicion").on("click", (traerInfo) => {
     let dataTrabajada = dataUsuario.value
 
-    let traerInfo = localStorage.getItem("lista")   
+    traerInfo = localStorage.getItem("lista")   
 
     if(traerInfo == null){
         let listaTareas = []
@@ -37,7 +33,6 @@ añadir.addEventListener("click", () => {
     }
     mostrarTareas()
 })
-
 
 function mostrarTareas (){
     let traerInfo = localStorage.getItem("lista")
@@ -62,12 +57,8 @@ function mostrarTareas (){
 
 function borrarTarea (index){
     let traerInfo = localStorage.getItem("lista")
-
     listaTareas = JSON.parse(traerInfo)
-
     listaTareas.splice(index, 1)
-
     localStorage.setItem("lista", JSON.stringify(listaTareas))
-    
     mostrarTareas()
 }

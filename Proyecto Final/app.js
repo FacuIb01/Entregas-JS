@@ -6,6 +6,39 @@ let divToDo = document.querySelector("#toDoList")
 
 let listaTareas;
 
+
+const darkMode = () => {
+    $("#botonSvg").css("color", "white")
+    $("ion-icon").attr("name", "sunny-outline")
+    $("section").css("background", "black")
+    $("#toDo").css("background-color", "grey")
+    $("#toDoList").css("background-color", "grey")
+    $("#toDo").css("box-shadow", "0 0 15px 5px white")
+    $("#toDoList").css("box-shadow", "0 0 15px 5px white")
+
+    localStorage.setItem("theme", "dark")
+}
+
+const lightMode = () => {
+    $("#botonSvg").css("color", "black")
+    $("ion-icon").attr("name", "moon-outline")
+    $("section").css("background", "linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)")
+    $("#toDo").css("background-color", "white")
+    $("#toDoList").css("background-color", "white")
+    $("#toDo").css("box-shadow", "none")
+    $("#toDoList").css("box-shadow", "none")
+
+    localStorage.setItem("theme", "light")
+}
+
+$("#darkMode").on("click", ()=>{
+    if(localStorage.getItem("theme") === "dark"){
+    lightMode()
+    }else{
+        darkMode()
+    }
+})
+
 dataUsuario.onkeyup = () => {
     
     let dataTrabajada = dataUsuario.value
@@ -20,6 +53,9 @@ dataUsuario.onkeyup = () => {
 $("#adicion").on("click", (traerInfo) => {
     let dataTrabajada = dataUsuario.value
 
+    if(dataTrabajada == ""){
+        alert("Ingrese una tarea por favor.")
+    }else{
     traerInfo = localStorage.getItem("lista")   
 
     if(traerInfo == null){
@@ -32,6 +68,7 @@ $("#adicion").on("click", (traerInfo) => {
         localStorage.setItem("lista", JSON.stringify(listaTareas))
     }
     mostrarTareas()
+    }
 })
 
 function mostrarTareas (){

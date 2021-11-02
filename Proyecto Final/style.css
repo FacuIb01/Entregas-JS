@@ -13,7 +13,6 @@ body{
 section{
     height: 37rem;
     width: 100%;
-    background: rgb(2,0,36);
     background: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
     display: flex;
     flex-direction: column;
@@ -21,7 +20,7 @@ section{
     justify-content: space-evenly;
     align-items: center;
     align-content: center;
-
+    transition: all .5 ease;
 }
 #toDo{
     height: 8rem;
@@ -50,6 +49,7 @@ section{
     justify-content: flex-start;
     align-items: center;
     align-content: center;
+    transition: all .5 ease;
 }
 
 input{
@@ -124,9 +124,8 @@ p{
     transform:translate(0px, -10px)
 }
 
-.borrar svg{
-    height: 2rem;
-    width: 2rem;
+svg{
+    fill: white;
 }
 
 .footer{
@@ -138,4 +137,22 @@ p{
 
 .footer button{
     width: 1rem;
+}
+
+
+#darkMode{
+    border: none;
+    background: none;
+}
+#botonSvg{
+    color: black;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+}
+
+
+#borrarItem{
+    background: none;
 }
